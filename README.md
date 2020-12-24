@@ -2,7 +2,7 @@
 
 This script exports dose statistics (plan objectives and DVH) to HTML. You can use this to copy-paste data into Excel or save it to a text file.
 
-![image](images/image2.png)
+![image](images/image3.png)
 
 ## How to use the script
 
