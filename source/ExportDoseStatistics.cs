@@ -9,7 +9,7 @@ using VMS.TPS.Common.Model.Types;
 using System.IO;
 using Microsoft.Win32;
 
-[assembly: AssemblyVersion("0.0.0.1")]
+//[assembly: AssemblyVersion("0.0.0.1")]
 
 
 namespace VMS.TPS
@@ -130,7 +130,7 @@ namespace VMS.TPS
                 Choose presentation:
                 <select id = 'selected' onchange='changeselect();'>
                 <option id = '1' selected> cGy </option>
-                <option id = '2'> cm3 </option>
+                <option id = '2'> % </option>
                 </select>
                 </form>
                 <br>
@@ -259,7 +259,7 @@ namespace VMS.TPS
             }
             message.Add(listofindexes);
 
-            foreach (var s in plan.StructuresSelectedForDvh)
+            foreach (var s in plan.StructuresSelectedForDvh.OrderBy(x => x.Id))
             {
                 DVHData dvh = plan.GetDVHCumulativeData(s, dosevaluepresentation, volumepresentation, 0.1);
                 string id = s.Id;
@@ -400,7 +400,6 @@ namespace VMS.TPS
                 }
 
                 //New table
-                var firstelement2 = protocolmeasure.First();
                 message2.Add(new List<string> { "StructureID", "Param", "Modifier", "TargetValue", "ActualValue", "TargetIsMet" });
 
                 foreach (var p in protocolmeasure)
